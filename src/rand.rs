@@ -455,6 +455,7 @@ mod no_std {
             unsafe { OPENSSL_ia32cap_P[1] & FLAG == FLAG }
         }
 
+        let _ = crate::cpu::features();
         // We must make sure current cpu support `rdrand`
         if !is_avaiable() {
             return Err(error::Unspecified);
